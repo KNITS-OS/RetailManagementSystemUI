@@ -38,6 +38,10 @@ import CreateGroupPage from "views/pages/groups/CreateGroupPage";
 import GroupsPage from "views/pages/groups/GroupsPage";
 import GroupDetailsPage from "views/pages/groups/GroupDetailsPage";
 
+import { CreateProductPage } from "views/pages/products/CreateProductPage";
+import { ProductsPage } from "views/pages/products/ProductsPage";
+import { ProductDetailsPage } from "views/pages/products/ProductDetailsPage";
+
 import ChartsPage from "views/pages/dashboards/ChartsPage";
 import WorldOverviewPage from "views/pages/dashboards/WorldOverviewPage";
 
@@ -84,6 +88,29 @@ const routes = [
         name: "Search Groups",
         miniName: "SC",
         component: GroupsPage,
+        layout: "/admin",
+      },
+    ],
+  },
+   /* Products */
+   {
+    collapse: true,
+    name: "Products",
+    icon: "ni ni-box-2 text-info",
+    state: "productCollapse",
+    views: [
+      {
+        path: "/create-product",
+        name: "Create Product",
+        miniName: "CE",
+        component: CreateProductPage,
+        layout: "/admin",
+      },
+      {
+        path: "/search-products",
+        name: "Search Product",
+        miniName: "SE",
+        component: ProductsPage,
         layout: "/admin",
       },
     ],
@@ -175,6 +202,13 @@ const routes = [
     global: true,
     path: "/groups/group-details/:id",
     component: GroupDetailsPage,
+    layout: "/admin",
+  },
+  {
+    collapse: false,
+    global: true,
+    path: "/products/products-details/:id",
+    component: ProductDetailsPage,
     layout: "/admin",
   },
   /* Examples */

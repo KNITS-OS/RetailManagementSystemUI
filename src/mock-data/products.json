@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "Omniva",
+      "product_category": "Packing",
+      "stock": true,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 91.5,
+      "product_retail_price": 150,
+      "vendors": [
+        "Omniva office"
+      ],
+      "id": 1,
+      "isActive": true,
+      "sku": "roll-wrap-1"
+    },
+    {
+      "id": 2,
+      "product_name": "Container",
+      "product_brand": "Omniva",
+      "product_category": "Packing",
+      "stock": true,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 90.5,
+      "product_retail_price": 150,
+      "vendors": [
+        "Omniva office"
+      ],
+      "isActive": true,
+      "sku": "container-2"
+    },
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "Omniva",
+      "product_category": "Packing",
+      "stock": true,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 90.5,
+      "product_retail_price": 150,
+      "vendors": [
+        "Omniva office"
+      ],
+      "id": 3,
+      "isActive": true,
+      "sku": "roll-wrap-3"
+    }
+  ]
+}
