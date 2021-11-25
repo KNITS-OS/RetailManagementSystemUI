@@ -3,8 +3,8 @@
     {
       "product_name": "Roll wrap",
       "product_brand": "Omniva",
-      "product_category": "Packing",
-      "stock": true,
+      "product_category": 1,
+      "stock": false,
       "minimum_stock_level": 1,
       "reorder_quantity": 2,
       "product_cost_price": 91.5,
@@ -20,7 +20,7 @@
       "id": 2,
       "product_name": "Container",
       "product_brand": "Omniva",
-      "product_category": "Packing",
+      "product_category": 2,
       "stock": true,
       "minimum_stock_level": 1,
       "reorder_quantity": 2,
@@ -29,13 +29,13 @@
       "vendors": [
         "Omniva office"
       ],
-      "isActive": true,
+      "isActive": false,
       "sku": "container-2"
     },
     {
       "product_name": "Roll wrap",
-      "product_brand": "Omniva",
-      "product_category": "Packing",
+      "product_brand": "DHL",
+      "product_category": 1,
       "stock": true,
       "minimum_stock_level": 1,
       "reorder_quantity": 2,
@@ -45,8 +45,50 @@
         "Omniva office"
       ],
       "id": 3,
-      "isActive": true,
+      "isActive": false,
       "sku": "roll-wrap-3"
+    },
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "Omniva",
+      "product_category": 1,
+      "stock": false,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 91.5,
+      "product_retail_price": 150,
+      "vendors": [
+        "Omniva office"
+      ],
+      "id": 5,
+      "isActive": true,
+      "sku": "roll-wrap-1"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Packing"
+    },
+    {
+      "id": 2,
+      "title": "Equipment"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "title": "default"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "title": "Omniva"
+    },
+    {
+      "id": 2,
+      "title": "DHL"
     }
   ]
 }

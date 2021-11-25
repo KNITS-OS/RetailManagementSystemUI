@@ -33,30 +33,7 @@ import {
 } from "reactstrap";
 
 export const CreateProductPage = () => {
-  let [firstName, setFirstName] = useState("first name");
   const history = useHistory();
-
-  let employee = {
-    firstName: firstName,
-    lastName: "",
-    internationalName: "",
-    title: "",
-    email: "",
-    businessUnit: "",
-    managementGroup: "",
-    companyCode: "",
-    costCenter: "",
-    country: "",
-    birthDate: "",
-    companyPhone: "",
-    companyMobilePhone: "",
-    gender: "",
-    nationality: "",
-    officeAddressCountry: "",
-    officeAddressCity: "",
-    officeAddressStreet: "",
-  };
-
   return (
     <>
       <GradientEmptyHeader />
@@ -279,10 +256,6 @@ export const CreateProductPage = () => {
               </Card>
             </Col>
           </Row>
-
-      
-      
-      
       </Container>
     </>
   );

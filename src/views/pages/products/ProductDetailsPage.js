@@ -3,7 +3,7 @@ import GradientEmptyHeader from "components/Headers/GradientEmptyHeader.js";
 import { employeesData as employees } from "mock-data/employees.js";
 import { React, useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { searchById } from 'services/ProductService.js';
+import { searchByParamsWithCategories } from 'services/ProductService.js';
 // reactstrap components
 import {
   Card,
@@ -18,20 +18,17 @@ import {
 } from "reactstrap";
 
 export const ProductDetailsPage = () => {
-  let { id } = useParams(); //see in routes path: "/users/employee-details/:id",
-  let currentProduct;
+  let { id } = useParams();
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     getProduct(id);
   }, [id]);
 
-  const [product, setProduct] = useState({});
-
   const getProduct = async (id) => {
     try {
-        const result = await searchById(id);
+        const result = await searchByParamsWithCategories(`id=${id}`);
         setProduct(result[0]);
-        console.log(result[0]);
     } catch (err) {
         console.log(err);
     }
@@ -262,7 +259,6 @@ export const ProductDetailsPage = () => {
                         </Col>
                       </Row>
                     </div>
-
                   </Form>
                 </CardBody>
               </Card>
