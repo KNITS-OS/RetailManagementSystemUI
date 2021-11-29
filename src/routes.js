@@ -49,8 +49,16 @@ import CreateStorePage from "views/pages/locations/CreateStorePage";
 import SearchDistributionCentersPage from "views/pages/locations/SearchDistributionCentersPage";
 import SearchStoresPage from "views/pages/locations/SearchStoresPage";
 
+import CreatePoRequisitionPage from "views/pages/procurement/CreatePoRequisitionPage";
+import InvoicesPage from "views/pages/procurement/InvoicesPage";
+import PurchaseOrderArchivePage from "views/pages/procurement/PurchaseOrderArchivePage";
+import PurchaseOrdersPage  from "views/pages/procurement/PurchaseOrdersPage";
+
+
+
 import CreateSupplierPage from "views/pages/suppliers/CreateSupplierPage";
 import SearchSuppliersPage from "views/pages/suppliers/SearchSuppliersPage";
+
 import CreateProductPage from "views/pages/products/CreateProductPage";
 import SearchProductsPage from "views/pages/products/SearchProductsPage";
 import CreateCustomerPage from "views/pages/sales/CreateCustomerPage";
@@ -102,10 +110,31 @@ const routes = [
   /* Dashboard */
   {
     collapse: true,
-    name: "PurchaseOrders",
+    name: "Procurement",
     icon: "ni ni-chart-pie-35 text-info",
-    state: "PurchaseOrdersCollapse",
-    views: [      
+    state: "ProcurementCollapse",
+    views: [    
+      {
+        path: "/purchase-orders",
+        name: "Purchase Orders",
+        miniName: "SC",
+        component: PurchaseOrdersPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/invoices",
+        name: "invoices",
+        miniName: "SC",
+        component: InvoicesPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/search-purchase-orders-product",
+        name: "Archive",
+        miniName: "SC",
+        component: PurchaseOrderArchivePage,
+        layout: "/admin",
+      },   
     ],
   },
 
