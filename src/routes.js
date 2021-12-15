@@ -29,21 +29,44 @@ import Pricing from "views/pages/examples/pages/Pricing.js";
 import Profile from "views/pages/examples/pages/Profile.js";
 import Icons from "views/pages/examples/components/Icons.js";
 
-//final pages
-import CreateEmployeePage from "views/pages/users/CreateEmployeePage";
-import EmployeesPage from "views/pages/users/EmployeesPage";
-import EmployeeDetailsPage from "views/pages/users/EmployeeDetailsPage";
-
+//demo pages
+import CreateEmployeePage from "views/pages/employees/CreateEmployeePage";
+import EmployeesPage from "views/pages/employees/EmployeesPage";
+import EmployeeDetailsPage from "views/pages/employees/EmployeeDetailsPage";
 import CreateGroupPage from "views/pages/groups/CreateGroupPage";
 import GroupsPage from "views/pages/groups/GroupsPage";
 import GroupDetailsPage from "views/pages/groups/GroupDetailsPage";
-
-import { CreateProductPage } from "views/pages/products/CreateProductPage";
-import { ProductsPage } from "views/pages/products/ProductsPage";
-import { ProductDetailsPage } from "views/pages/products/ProductDetailsPage";
-
 import ChartsPage from "views/pages/dashboards/ChartsPage";
 import WorldOverviewPage from "views/pages/dashboards/WorldOverviewPage";
+
+//RMS pages
+import CreateRolePage from "views/pages/users/CreateRolePage";
+import CreateUserPage from "views/pages/users/CreateUserPage";
+import SearchUsersPage from "views/pages/users/SearchUsersPage";
+
+import CreateDistributionCenterPage from "views/pages/locations/CreateDistributionCenterPage";
+import CreateStorePage from "views/pages/locations/CreateStorePage";
+import SearchDistributionCentersPage from "views/pages/locations/SearchDistributionCentersPage";
+import SearchStoresPage from "views/pages/locations/SearchStoresPage";
+
+import CreatePoRequisitionPage from "views/pages/procurement/CreatePoRequisitionPage";
+import InvoicesPage from "views/pages/procurement/InvoicesPage";
+import PurchaseOrderArchivePage from "views/pages/procurement/PurchaseOrderArchivePage";
+import PurchaseOrdersPage  from "views/pages/procurement/PurchaseOrdersPage";
+
+
+
+import CreateSupplierPage from "views/pages/suppliers/CreateSupplierPage";
+import SearchSuppliersPage from "views/pages/suppliers/SearchSuppliersPage";
+
+import CreateProductPage from "views/pages/products/CreateProductPage";
+import SearchProductsPage from "views/pages/products/SearchProductsPage";
+import CreateCustomerPage from "views/pages/sales/CreateCustomerPage";
+import SearchCustomersPage from "views/pages/sales/SearchCustomersPage";
+import SalesOrdersPage from "views/pages/sales/SalesOrdersPage";
+import SalesDashboardPage from "views/pages/sales/SalesDashboardPage";
+
+
 
 const routes = [
   /* Users */
@@ -55,27 +78,18 @@ const routes = [
     views: [
       {
         path: "/create-employee",
-        name: "Create Employee",
+        name: "Create User",
         miniName: "CE",
-        component: CreateEmployeePage,
+        component: CreateUserPage,
         layout: "/admin",
       },
       {
         path: "/search-employees",
-        name: "Search Employee",
+        name: "Search Users",
         miniName: "SE",
-        component: EmployeesPage,
+        component: SearchUsersPage,
         layout: "/admin",
       },
-    ],
-  },
-  /* Groups */
-  {
-    collapse: true,
-    name: "Groups",
-    state: "groupCollapse",
-    icon: "ni ni-chart-pie-35 text-info",
-    views: [
       {
         path: "/create-group",
         name: "Create Group",
@@ -92,103 +106,158 @@ const routes = [
       },
     ],
   },
-   /* Products */
-   {
-    collapse: true,
-    name: "Products",
-    icon: "ni ni-box-2 text-info",
-    state: "productCollapse",
-    views: [
-      {
-        path: "/create-product",
-        name: "Create Product",
-        miniName: "CE",
-        component: CreateProductPage,
-        layout: "/admin",
-      },
-      {
-        path: "/search-products",
-        name: "Search Product",
-        miniName: "SE",
-        component: ProductsPage,
-        layout: "/admin",
-      },
-    ],
-  },
   /* Dashboard */
   {
     collapse: true,
-    name: "Dashboard",
+    name: "Procurement",
     icon: "ni ni-chart-pie-35 text-info",
-    state: "dashboardCollapse",
-    views: [
+    state: "ProcurementCollapse",
+    views: [    
       {
-        path: "/statistics",
-        name: "Charts",
-        miniName: "NB",
-        component: ChartsPage,
+        path: "/purchase-orders",
+        name: "Purchase Orders",
+        miniName: "SC",
+        component: PurchaseOrdersPage,
         layout: "/admin",
-      },
+      }, 
       {
-        path: "/world-view",
-        name: "World Overview",
-        miniName: "WV",
-        component: WorldOverviewPage,
+        path: "/invoices",
+        name: "invoices",
+        miniName: "SC",
+        component: InvoicesPage,
         layout: "/admin",
-      },
+      }, 
+      {
+        path: "/search-purchase-orders-product",
+        name: "Archive",
+        miniName: "SC",
+        component: PurchaseOrderArchivePage,
+        layout: "/admin",
+      },   
     ],
   },
-  /* Finalized */
+
   {
     collapse: true,
-    name: "Finalized",
+    name: "Products",
     icon: "ni ni-chart-pie-35 text-info",
-    state: "finalizedCollapse",
-    views: [
+    state: "ProductsCollapse",
+    views: [     
       {
-        path: "/create-employee-final",
-        name: "Create Employee",
-        miniName: "CE",
-        component: CreateEmployeePage,
-        layout: "/admin",
-      },
-      {
-        path: "/search-employees-final",
-        name: "Search Employee",
-        miniName: "SE",
-        component: EmployeesPage,
-        layout: "/admin",
-      },
-      {
-        path: "/create-group-final",
-        name: "Create Group",
-        miniName: "CG",
-        component: CreateGroupPage,
-        layout: "/admin",
-      },
-      {
-        path: "/search-groups-final",
-        name: "Search Groups",
+        path: "/create-product",
+        name: "Create Product",
         miniName: "SC",
-        component: GroupsPage,
+        component: CreateProductPage,
         layout: "/admin",
-      },
+      }, 
       {
-        path: "/statistics-final",
-        name: "Charts",
-        miniName: "NB",
-        component: ChartsPage,
+        path: "/search-products",
+        name: "Search Products",
+        miniName: "SC",
+        component: SearchProductsPage,
         layout: "/admin",
-      },
-      {
-        path: "/world-view-final",
-        name: "World Overview",
-        miniName: "WV",
-        component: WorldOverviewPage,
-        layout: "/admin",
-      },
+      },  
     ],
   },
+ 
+  {
+    collapse: true,
+    name: "Locations",
+    icon: "ni ni-chart-pie-35 text-info",
+    state: "LocationsCollapse",
+    views: [     
+      {
+        path: "/create-distribution-center",
+        name: "New Distribution Center",
+        miniName: "SC",
+        component: CreateDistributionCenterPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/search-distribution-center",
+        name: "Search Distribution Centers",
+        miniName: "SC",
+        component: SearchDistributionCentersPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/create-store",
+        name: "Create Store",
+        miniName: "SC",
+        component: CreateStorePage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/search-stores",
+        name: "Search Stores",
+        miniName: "SC",
+        component: SearchStoresPage,
+        layout: "/admin",
+      }, 
+    ],
+  },
+
+  {
+    collapse: true,
+    name: "Suppliers",
+    icon: "ni ni-chart-pie-35 text-info",
+    state: "SuppliersCollapse",
+    views: [     
+      {
+        path: "/create-suppliers",
+        name: "Create Suppliers",
+        miniName: "SC",
+        component: CreateSupplierPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/search-suppliers",
+        name: "Search Suppliers",
+        miniName: "SC",
+        component: SearchSuppliersPage,
+        layout: "/admin",
+      },  
+    ],
+  },
+
+  {
+    collapse: true,
+    name: "Sales",
+    icon: "ni ni-chart-pie-35 text-info",
+    state: "SalesCollapse",
+    views: [   
+      {
+        path: "/register-customer",
+        name: "Register Customer",
+        miniName: "SC",
+        component: CreateCustomerPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/search-customers",
+        name: "Search Customers",
+        miniName: "SC",
+        component: SearchCustomersPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/sales-orders",
+        name: "Sales Orders",
+        miniName: "SC",
+        component: SalesOrdersPage,
+        layout: "/admin",
+      }, 
+      {
+        path: "/sales-dashboard",
+        name: "Sales Dashboard",
+        miniName: "SC",
+        component: SalesDashboardPage,
+        layout: "/admin",
+      }, 
+    ],
+  },
+
+
   /* Details Routes*/
   {
     collapse: false,
@@ -219,6 +288,20 @@ const routes = [
     state: "exampleCollapse",
     layout: "/admin",
     views: [
+      {
+        path: "/statistics",
+        name: "Charts",
+        miniName: "NB",
+        component: ChartsPage,
+        layout: "/admin",
+      },
+      {
+        path: "/world-view",
+        name: "World Overview",
+        miniName: "WV",
+        component: WorldOverviewPage,
+        layout: "/admin",
+      },
       {
         path: "/buttons",
         name: "Buttons demo",
