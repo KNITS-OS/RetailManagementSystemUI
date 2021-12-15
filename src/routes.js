@@ -59,8 +59,9 @@ import PurchaseOrdersPage  from "views/pages/procurement/PurchaseOrdersPage";
 import CreateSupplierPage from "views/pages/suppliers/CreateSupplierPage";
 import SearchSuppliersPage from "views/pages/suppliers/SearchSuppliersPage";
 
-import CreateProductPage from "views/pages/products/CreateProductPage";
-import SearchProductsPage from "views/pages/products/SearchProductsPage";
+import { CreateProductPage } from "views/pages/products/CreateProductPage";
+import { SearchProductsPage } from "views/pages/products/SearchProductsPage";
+import { ProductDetailsPage } from "views/pages/products/ProductDetailsPage";
 import CreateCustomerPage from "views/pages/sales/CreateCustomerPage";
 import SearchCustomersPage from "views/pages/sales/SearchCustomersPage";
 import SalesOrdersPage from "views/pages/sales/SalesOrdersPage";
@@ -140,7 +141,7 @@ const routes = [
   {
     collapse: true,
     name: "Products",
-    icon: "ni ni-chart-pie-35 text-info",
+    icon: "ni ni-box-2 text-info",
     state: "ProductsCollapse",
     views: [     
       {

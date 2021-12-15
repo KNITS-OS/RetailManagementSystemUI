@@ -81,7 +81,7 @@ export const CreateProductPage = () => {
     isbn: Yup.string().matches(/^([0-9]{10}|[0-9]{13})$/, { excludeEmptyString: true}),
     description: Yup.string(),
     sku: Yup.string().matches(/^([a-zA-Z0-9-_/\s]{32})$/, { excludeEmptyString: true}),
-    status: Yup.number().positive(),
+    status: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     ean: Yup.string().matches(/^([0-9]{8}|[0-9]{13}|[0-9]{14})$/, { excludeEmptyString: true}),
     mpn: Yup.string().matches(/^([a-zA-Z0-9])$/, { excludeEmptyString: true}),
     barcode: Yup.string(),

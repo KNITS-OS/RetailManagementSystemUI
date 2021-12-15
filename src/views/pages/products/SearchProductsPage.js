@@ -1,81 +1,52 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 // core components
 import GradientEmptyHeader from "components/Headers/GradientEmptyHeader.js";
-import React, { useState } from "react";
- 
+import { React, useEffect, useState } from 'react';
+import { SearchProducts } from "components/Product/SearchProducts.js";
+import { ProductsList } from "components/Product/ProductsList.js";
+
+import { getProductsWithCategories, getCategories } from 'services/ProductService.js'
 // reactstrap components
 import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Row,
+  Container
 } from "reactstrap";
 
-const SearchProductsPage = () => {
+export const SearchProductsPage = () => {
+  const [products, setProducts] = useState([]);
 
+  let categories = [];
 
-  
+  useEffect(() => {
+    getAllCategories()
+  }, []); 
+
+  const getAllCategories = async () => {
+    try {
+        categories = await getCategories();
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    getAllProducts()
+  }, []);
+
+  const getAllProducts = async () => {
+      try {
+        const productsWithCategories = await getProductsWithCategories();
+          setProducts(productsWithCategories);
+      } catch (err) {
+          console.log(err);
+      }
+  }
+
   return (
     <>
       <GradientEmptyHeader />
       <Container className="mt--6" fluid>
-        <Row>
-          <Col className="order-xl-1" xl="12">
-            <Card>
-              <CardHeader>
-                <Row className="align-items-center">
-                  <Col xs="8">
-                    <h3 className="mb-0">Search Products</h3>
-                  </Col>
-                </Row>
-              </CardHeader>
-              <CardBody>
-                <Form>
-                  <h6 className="heading-small text-muted mb-4">
-                    Search Products Filters
-                  </h6>
-                  <div className="pl-lg-4">
-                    <Row>
-                      <Col lg="4">
-                        1st Column
-                      </Col>
-                      <Col lg="4">
-                        2nd Column
-                      </Col>
-                      <Col lg="4">
-                        3rd Column
-                      </Col>
-                    </Row>
-                  </div>
-                </Form>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+        <SearchProducts products={products} setProducts={setProducts}/>
+        <ProductsList products={products} setProducts={setProducts}/>
       </Container>
     </>
   );
 };
-
-export default SearchProductsPage;
