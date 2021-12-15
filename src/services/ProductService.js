@@ -1,4 +1,5 @@
 import { axiosConfig } from "../http-common";
+import { generateID } from 'utils/mocksHelper.js';
 
 export const getProducts =  async () => {
    return (await axiosConfig.get("/products")).data;
@@ -18,7 +19,8 @@ export const getProductsWithCategories =  async () => {
 };
 
 export const createProduct = async (data) => {
-  return (await axiosConfig.post("/products", data)).data;
+  const generatedID = generateID();
+  return (await axiosConfig.post("/products", {...data, id: generatedID})).data;
 };
 
 export const updateProduct = async (id, data) => {

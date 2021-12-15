@@ -1,0 +1,10 @@
+.no-data-message {
+    text-align: center;
+    padding: 1rem;
+}
+
+.nav-pills .nav-link.disabled {
+    color: var(--gray);
+    background-color: var(--lighter);
+    border-color: var(--lighter);
+}

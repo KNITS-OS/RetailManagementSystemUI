@@ -35,7 +35,7 @@ export const ToggleProductActiveStatus = ({productId, products, setProducts}) =>
       <label className="custom-toggle custom-toggle-success mr-1">
       <input
         id={productId}
-        value={currentProduct.isActive}
+        // value={currentProduct.isActive}
         type="checkbox"
         checked={currentProduct.isActive}
         onChange={toggleActiveState}

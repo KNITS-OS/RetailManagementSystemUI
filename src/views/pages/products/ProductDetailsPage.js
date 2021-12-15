@@ -1,6 +1,5 @@
 // core components
 import GradientEmptyHeader from "components/Headers/GradientEmptyHeader.js";
-import { employeesData as employees } from "mock-data/employees.js";
 import { React, useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { searchByParamsWithCategories } from 'services/ProductService.js';

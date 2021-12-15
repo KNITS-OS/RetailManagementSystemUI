@@ -54,13 +54,13 @@ export const SearchProducts = ({products, setProducts}) => {
   const [searchCategory, setProductCategory] = useState(null);
   const [searchBrand, setProductBrand] = useState('');
 
-    const filterToQueryString = (filterParam) => {
-        return (filterParam.value || typeof filterParam.value === 'boolean') ?
-            ((filterParam.name === 'stock' || filterParam.name === 'id') ?
-            `${filterParam.name}=${encodeURIComponent(filterParam.value)}` :
-            `${filterParam.name}_like=${encodeURIComponent(filterParam.value)}`) :
-            '';
-      }
+  const filterToQueryString = (filterParam) => {
+      return (filterParam.value || typeof filterParam.value === 'boolean') ?
+          ((filterParam.name === 'stock' || filterParam.name === 'id') ?
+          `${filterParam.name}=${encodeURIComponent(filterParam.value)}` :
+          `${filterParam.name}_like=${encodeURIComponent(filterParam.value)}`) :
+          '';
+    }
     
   const findByAllParameters = async (event) => {
     event.preventDefault();
