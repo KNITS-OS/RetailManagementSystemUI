@@ -1,18 +1,18 @@
 export const brands = [
-  {value: '', label: "Choose brand..."},
+  {value: '', label: "Select Product brand..."},
   {value: 1, label: "Best Brand Ltd."},
   {value: 2, label: "Biggest Brand"}
 ];
 
 export const categories = [
-  {value: '', label: "Choose category..."},
+  {value: '', label: "Select Product category..."},
   {value: 1, label: "Part"},
   {value: 2, label: "Online"},
   {value: 3, label: "Hardware"}
 ];
 
 export const types = [
-  {value: '', label: "Choose type..."},
+  {value: '', label: "Select Product type..."},
   {value: 1, label: "Packing"},
   {value: 2, label: "Equipment"},
   {value: 3, label: "Book"}
@@ -25,7 +25,7 @@ export const suppliers = [
 ]
 
 export const seasons = [
-  {value: '', label: "Choose season..."},
+  {value: '', label: "Select season..."},
   {value: 1, label: "Winter"},
   {value: 2, label: "Spring"},
   {value: 3, label: "Summer"},
@@ -33,13 +33,13 @@ export const seasons = [
 ]
 
 export const conditions = [
-  {value: '', label: "Choose condition..."},
+  {value: '', label: "Select condition..."},
   {value: 1, label: "New"},
   {value: 2, label: "Refurbished"}
 ]
 
 export const statuses = [
-  {value: '', label: "Choose initial status..."},
+  {value: '', label: "Select initial status..."},
   {value: 1, label: "Live"},
   {value: 2, label: "Disconnected"},
   {value: 3, label: "Archived"}

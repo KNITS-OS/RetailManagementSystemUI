@@ -80,10 +80,10 @@ export const CreateProductPage = () => {
     upc: Yup.string().matches(/^([0-9]{12})$/, { excludeEmptyString: true}),
     isbn: Yup.string().matches(/^([0-9]{10}|[0-9]{13})$/, { excludeEmptyString: true}),
     description: Yup.string(),
-    sku: Yup.string().matches(/^([a-zA-Z0-9-_/\s]{32})$/, { excludeEmptyString: true}),
+    sku: Yup.string().matches(/^([a-zA-Z0-9-_/\s]{0,32})$/, { excludeEmptyString: true}),
     status: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     ean: Yup.string().matches(/^([0-9]{8}|[0-9]{13}|[0-9]{14})$/, { excludeEmptyString: true}),
-    mpn: Yup.string().matches(/^([a-zA-Z0-9])$/, { excludeEmptyString: true}),
+    mpn: Yup.string().matches(/^([a-zA-Z0-9]+)$/, { excludeEmptyString: true}),
     barcode: Yup.string(),
     condition: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     season: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
@@ -94,7 +94,7 @@ export const CreateProductPage = () => {
     width: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     length: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     volume: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
-    available_quantity: Yup.number().min(1).required('Specify available quantity'),
+    available_quantity: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     minimum_stock_level: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     reorder_quantity: Yup.number().positive().nullable(true).transform(value => isNaN(value) ? null : value),
     default_location: Yup.string(),
@@ -315,7 +315,7 @@ export const CreateProductPage = () => {
                               control={control}
                               render={({ field }) => 
                                 <SelectComponent
-                                  inputLabel = "Category"
+                                  inputLabel = "Product type"
                                   inputId = "product_type"
                                   inputName = "product_type"
                                   inputType="select"
