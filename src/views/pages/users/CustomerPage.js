@@ -42,7 +42,6 @@ const CustomerPage = () => {
   const gotoCustomerPage = (e) => {
     let { id } = e.target;
     history.push(`/admin/users/customer-details/${id}`);
-    console.log("id is :", id);
   };
 
   const removeCustomer = (e) => {
@@ -91,7 +90,7 @@ const CustomerPage = () => {
           <div className="col">
             <Card>
               <CardHeader>
-                <h3 className="mb-0">Search Cuatomers</h3>
+                <h3 className="mb-0">Search Customers</h3>
                 <p className="text-sm mb-0">Filters</p>
               </CardHeader>
               <CardBody>
