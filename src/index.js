@@ -18,6 +18,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // react library for routing
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Provider } from "react-redux";
 
 // plugins styles from node_modules
 import "react-notification-alert/dist/animate.css";
@@ -33,11 +34,13 @@ import "./assets/vendor/nucleo/css/nucleo.css";
 // core styles
 import "./assets/scss/argon-dashboard-react.scss?v1.2.0";
 
+import store from "store";
 import AdminLayout from "./layouts/Admin.js";
 import AuthLayout from "./layouts/Auth.js";
-import IndexView from "./views/Index.js";
+
 
 ReactDOM.render(
+  <Provider store={store}>
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />   
@@ -45,6 +48,7 @@ ReactDOM.render(
       <Route path="/" render={(props) => <AdminLayout {...props} />} />
       <Redirect from="*" to="/" />
     </Switch>
-  </BrowserRouter>,
+  </BrowserRouter>
+   </Provider>,
   document.getElementById("root")
 );
