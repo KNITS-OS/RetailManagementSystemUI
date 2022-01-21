@@ -31,21 +31,32 @@ import {
   Row,
 } from "reactstrap";
 import AddMemberPanel from "./AddMemberPanel";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addGroup } from "../../../actions";
+import { isConstructorDeclaration } from "typescript";
 const CreateGroupPage = () => {
-  // const initialGroupState = {
-  //   id: null,
-  //   name: "",
-  //   description: "",
-  //   members: []
-  // }
-
-  // const [group, setGroup] = useState(initialGroupState)
-
+  const mockData = useSelector((state) => state.groups);
+  const [group_id, setgroup_Id] = useState(mockData.length + 1);
   const [groupName, setGroupName] = useState("");
   const [groupDescription, setGroupDescription] = useState("");
-  const saveGroup = e => {
+  const [groupMembers, setGroupMembers] = useState([]);
+  const dispatch = useDispatch();
+
+  let initialGroupState = {
+    id: null,
+    name: "test",
+    description: "",
+    members: [],
+  };
+
+  //const [group, setGroup] = useState(initialGroupState);
+  const saveGroup = (e) => {
+    setgroup_Id(group_id + 1);
+    initialGroupState.id = group_id;
+    initialGroupState.name = groupName;
+    initialGroupState.description = groupDescription;
     e.preventDefault();
+    dispatch(addGroup(initialGroupState));
   };
 
   const [addMembersCollapse, setAddMembersCollapse] = useState(false);
@@ -142,7 +153,6 @@ const CreateGroupPage = () => {
       >
         <span className="mask bg-gradient-info opacity-8" />
       </div>
-
       <Container className="mt--6" fluid>
         <Row>
           <Col className="order-xl-1" xl="12">
@@ -184,7 +194,7 @@ const CreateGroupPage = () => {
                             id="input-group-name"
                             placeholder="Group name"
                             type="text"
-                            onChange={e => setGroupName(e.target.value)}
+                            onChange={(e) => setGroupName(e.target.value)}
                           />
                         </FormGroup>
                       </Col>
@@ -205,7 +215,7 @@ const CreateGroupPage = () => {
                             placeholder="A few words about the group"
                             rows="4"
                             type="textarea"
-                            onChange={e =>
+                            onChange={(e) =>
                               setGroupDescription(e.target.value)
                             }
                             alue={groupDescription}
@@ -215,12 +225,10 @@ const CreateGroupPage = () => {
                     </Row>
 
                     <Row className="d-flex justify-content-between mx-2">
-                      <h6 className="heading-small text-muted mb-4">
-                        MEMBERS
-                      </h6>
+                      <h6 className="heading-small text-muted mb-4">MEMBERS</h6>
                       <ButtonGroup className="d-flex">
                         <Button
-                          onClick={e =>
+                          onClick={(e) =>
                             setAddMembersCollapse(!addMembersCollapse)
                           }
                           color="success"
@@ -236,10 +244,21 @@ const CreateGroupPage = () => {
                         {/* <MembersTableComps data={group.members} /> */}
                         <Collapse isOpen={addMembersCollapse}>
                           <AddMemberPanel
-                            onchangeRole={e => console.log(e)}
-                            onchangeCountry={e => console.log(e)}
-                            onchangeBunit={e => console.log(e)}
-                            onSelectCareMember={e => console.log(e)}
+                            onchangeRole={(e) => console.log(e)}
+                            onchangeCountry={(e) => console.log(e)}
+                            onchangeBunit={(e) => console.log(e)}
+                            onSelectCareMember={(e) => {
+                              const data = e
+                                .map((person) => person.value)
+                                .filter((id) => {
+                                  if (!groupMembers.includes(id)) {
+                                    console.log(id);
+                                    return id;
+                                  }
+                                });
+                              setGroupMembers([...groupMembers, data[0]]);
+                              console.log(groupMembers);
+                            }}
                           />
                         </Collapse>
                       </Col>
@@ -338,10 +357,7 @@ const CreateGroupPage = () => {
                   {/* </div> */}
 
                   <div className="pl-lg-4">
-                    <button
-                      onClick={saveGroup}
-                      className="btn btn-success"
-                    >
+                    <button onClick={saveGroup} className="btn btn-success">
                       Submit
                     </button>
                   </div>

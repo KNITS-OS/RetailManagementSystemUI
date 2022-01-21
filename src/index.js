@@ -36,15 +36,22 @@ import "./assets/scss/argon-dashboard-react.scss?v1.2.0";
 import AdminLayout from "./layouts/Admin.js";
 import AuthLayout from "./layouts/Auth.js";
 import IndexView from "./views/Index.js";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import allReducers from "reducers";
+import CreateCustomer from "./views/pages/users/CreateCustomer";
+const store = createStore(allReducers);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />   
-      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Route path="/" render={(props) => <AdminLayout {...props} />} />
-      <Redirect from="*" to="/" />
-    </Switch>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+        <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+        <Route path="/" render={(props) => <AdminLayout {...props} />} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );

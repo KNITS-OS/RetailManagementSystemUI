@@ -16,7 +16,6 @@
 */
 // core components
 import SimpleHeader from "components/Headers/SimpleHeader.js";
-import { groups } from "mock-data/groups.js";
 import React from "react";
 // react component for creating dynamic tables
 import BootstrapTable from "react-bootstrap-table-next";
@@ -25,13 +24,15 @@ import { useHistory } from "react-router";
 // reactstrap components
 import { Button, Card, CardHeader, Container, Row } from "reactstrap";
 import { pagination } from "utils/tableUtils";
-
+import { useSelector } from "react-redux";
+import GradientEmptyHeader from "components/Headers/GradientEmptyHeader.js";
 const { SearchBar } = Search;
 
 function GroupsPage() {
+  const groups = useSelector((state) => state.groups);
   const history = useHistory();
 
-  const groupDetails = e => {
+  const groupDetails = (e) => {
     var { id } = e.target;
     history.push(`/admin/groups/group-details/${id}`);
   };
@@ -57,18 +58,13 @@ function GroupsPage() {
   return (
     <>
       {alert}
-      <SimpleHeader name="React Tables" parentName="Tables" />
+      <GradientEmptyHeader />
       <Container className="mt--6" fluid>
         <Row>
           <div className="col">
             <Card>
               <CardHeader>
-                <h3 className="mb-0">React Bootstrap Table 2</h3>
-                <p className="text-sm mb-0">
-                  This is an exmaple of data table using the well known
-                  react-bootstrap-table2 plugin. This is a minimal setup in
-                  order to get started fast.
-                </p>
+                <h3 className="mb-0">Search Groups</h3>
               </CardHeader>
               <ToolkitProvider
                 data={groups}
@@ -102,7 +98,7 @@ function GroupsPage() {
                 ]}
                 search
               >
-                {props => (
+                {(props) => (
                   <div className="py-4 table-responsive">
                     <div
                       id="datatable-basic_filter"
