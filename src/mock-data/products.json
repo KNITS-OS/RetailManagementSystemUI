@@ -1,0 +1,154 @@
+{
+  "products": [
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "Omniva",
+      "product_category": 1,
+      "stock": false,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 91.5,
+      "product_retail_price": 150,
+      "suppliers": [
+        "Omniva office"
+      ],
+      "id": 1,
+      "isActive": true,
+      "sku": "roll-wrap-1"
+    },
+    {
+      "id": 2,
+      "product_name": "Container",
+      "product_brand": "Omniva",
+      "product_category": 2,
+      "stock": true,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 90.5,
+      "product_retail_price": 150,
+      "suppliers": [
+        "Omniva office"
+      ],
+      "isActive": false,
+      "sku": "container-2"
+    },
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "DHL",
+      "product_category": 1,
+      "stock": true,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 90.5,
+      "product_retail_price": 150,
+      "suppliers": [
+        "Omniva office"
+      ],
+      "id": 3,
+      "isActive": true,
+      "sku": "roll-wrap-3"
+    },
+    {
+      "product_name": "Roll wrap",
+      "product_brand": "Omniva",
+      "product_category": 1,
+      "stock": false,
+      "minimum_stock_level": 1,
+      "reorder_quantity": 2,
+      "product_cost_price": 91.5,
+      "product_retail_price": 150,
+      "suppliers": [
+        "Omniva office"
+      ],
+      "id": 5,
+      "isActive": true,
+      "sku": "roll-wrap-1"
+    },
+    {
+      "id": 6,
+      "product_name": "test",
+      "description": "some details",
+      "sku": "123",
+      "product_brand": 1,
+      "product_type": 2,
+      "product_category": 1,
+      "isActive": false,
+      "stock": true,
+      "UPC": "1234",
+      "ISBN": "1",
+      "EAN": "2",
+      "MPN": "3",
+      "barcode": "23",
+      "condition": "n",
+      "season": "autumn",
+      "expiration_date": "31-12-2021",
+      "weight": 0,
+      "height": 0,
+      "width": 0,
+      "length": 0,
+      "volume": 0,
+      "minimum_stock_level": "11",
+      "reorder_quantity": "2",
+      "default_location": "",
+      "overflow_location": "",
+      "suppliers": []
+    },
+    {
+      "id": "2ec9b86024ff7d44",
+      "product_name": "testid",
+      "description": "",
+      "sku": "id-new-product",
+      "product_brand": 1,
+      "product_type": 1,
+      "product_category": 1,
+      "isActive": true,
+      "stock": true,
+      "UPC": "",
+      "ISBN": "",
+      "EAN": "",
+      "MPN": "",
+      "barcode": "",
+      "condition": "",
+      "season": "",
+      "expiration_date": "",
+      "weight": "1",
+      "height": "3",
+      "width": "5",
+      "length": "10",
+      "volume": "2",
+      "minimum_stock_level": 0,
+      "reorder_quantity": 0,
+      "default_location": "",
+      "overflow_location": "",
+      "suppliers": [
+        1
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Packing"
+    },
+    {
+      "id": 2,
+      "title": "Equipment"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "title": "default"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "title": "Omniva"
+    },
+    {
+      "id": 2,
+      "title": "DHL"
+    }
+  ]
+}

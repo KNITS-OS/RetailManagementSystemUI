@@ -1,21 +1,6 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 // react library for routing
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
@@ -36,17 +21,14 @@ import "./assets/scss/argon-dashboard-react.scss?v1.2.0";
 import AdminLayout from "./layouts/Admin.js";
 import AuthLayout from "./layouts/Auth.js";
 import IndexView from "./views/Index.js";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import allReducers from "reducers";
-import CreateCustomer from "./views/pages/users/CreateCustomer";
-const store = createStore(allReducers);
+
+import { store } from 'store';
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />   
         <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
         <Route path="/" render={(props) => <AdminLayout {...props} />} />
         <Redirect from="*" to="/" />
